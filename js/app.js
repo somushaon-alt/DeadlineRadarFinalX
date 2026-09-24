@@ -251,7 +251,7 @@ const DR = (function () {
      MONGODB API
   ========================================================= */
 
-  const API_BASE = "http://localhost:5000/api";
+ const API_BASE = "https://deadlineradarfinalx.onrender.com/api";
 
   async function readApiResponse(response) {
     const text = await response.text();
