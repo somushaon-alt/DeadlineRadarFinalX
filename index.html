@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Deadline Radar — Stay Ahead. Never Miss a Deadline.</title>
+<meta name="description" content="Deadline Radar is an academic deadline management dashboard for university students: track assignments, exams, projects and more." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛰️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<div id="bg-root"></div>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="navbar">
+  <a href="index.html" class="brand"><span class="dot">◉</span> Deadline Radar</a>
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="#features">Features</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#about">About</a>
+    <a href="login.html">Login</a>
+  </div>
+  <div class="nav-actions">
+    <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span></button>
+  </div>
+</nav>
+<div id="mobileNavPanel" style="display:none;position:sticky;top:64px;z-index:99;background:rgba(3,8,20,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:14px 24px;">
+  <div style="display:flex;flex-direction:column;gap:4px;">
+    <a href="index.html" style="padding:10px 6px;color:var(--text-hi);">Home</a>
+    <a href="#features" style="padding:10px 6px;color:var(--text-mid);">Features</a>
+    <a href="#how-it-works" style="padding:10px 6px;color:var(--text-mid);">How It Works</a>
+    <a href="#about" style="padding:10px 6px;color:var(--text-mid);">About</a>
+    <a href="login.html" style="padding:10px 6px;color:var(--text-mid);">Login</a>
+  </div>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="hero-copy">
+    <span class="section-tag">🛰️ Academic Deadline Monitoring System</span>
+    <h1>Never Miss an <span class="glow-word">Deadline</span> Again.</h1>
+    <p class="lead">Track assignments, exams, projects, presentations and every important academic deadline in one intelligent dashboard.</p>
+    <div class="hero-actions">
+      <a href="register.html" class="btn btn-primary">Get Started</a>
+      <a href="#features" class="btn btn-ghost">Explore Features</a>
+    </div>
+    <div class="hero-stats">
+      <div><b>4</b><span>Deadline Types Tracked</span></div>
+      <div><b>100%</b><span>Runs In Your Browser</span></div>
+      <div><b>24/7</b><span>Live Countdown</span></div>
+    </div>
+  </div>
+
+  <div class="radar-wrap">
+    <div class="float-card fc1">🔴 1 DAY LEFT<b>Java Assignment</b></div>
+    <div class="float-card fc2">✓ 7 COMPLETED<b>This Semester</b></div>
+    <div class="float-card fc3">⚡ 4 UPCOMING<b>This Week</b></div>
+    <div class="float-card fc4">📅 3 DEADLINES<b>Next 7 Days</b></div>
+
+    <div class="radar-scope" id="heroRadar">
+      <div class="radar-ring r1"></div>
+      <div class="radar-ring r2"></div>
+      <div class="radar-ring r3"></div>
+      <div class="radar-ring r4"></div>
+      <div class="radar-cross h"></div>
+      <div class="radar-cross v"></div>
+      <div class="radar-sweep"></div>
+      <div class="radar-center"></div>
+
+      <div class="radar-point critical" style="top:30%;left:62%;">
+        <div class="radar-tip"><b>Java Assignment</b>Object Oriented Programming<br>1 day remaining · Priority: High</div>
+      </div>
+      <div class="radar-point upcoming" style="top:66%;left:34%;">
+        <div class="radar-tip"><b>Calculus CT</b>Mathematics<br>4 days remaining · Priority: High</div>
+      </div>
+      <div class="radar-point safe" style="top:22%;left:26%;">
+        <div class="radar-tip"><b>Web Project</b>Internet Programming<br>10 days remaining · Priority: Medium</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURES ===================== -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Capabilities</span>
+      <h2>Everything You Need to <span class="gradient-text">Stay Ahead</span></h2>
+      <p>A focused toolkit built for the way students actually track academic work.</p>
+    </div>
+    <div class="feature-grid">
+
+      <div class="feature-card" data-tilt>
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 12.5l2 2 4-4.5"/></svg>
+        </div>
+        <h3>Smart Deadline Tracking</h3>
+        <p>Add and manage assignments, exams, projects and other academic deadlines in one place.</p>
+      </div>
+
+      <div class="feature-card" data-tilt>
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 3 7v6c0 5 4 8 9 9 5-1 9-4 9-9V7l-9-5z"/><path d="M12 8v4.5l3 2"/></svg>
+        </div>
+        <h3>Priority Detection</h3>
+        <p>Automatically classifies every deadline as Critical, Upcoming or Safe based on time remaining.</p>
+      </div>
+
+      <div class="feature-card" data-tilt>
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4"/><path d="M12 3.5V6M12 18v2.5M20.5 12H18M6 12H3.5"/></svg>
+        </div>
+        <h3>Deadline Radar</h3>
+        <p>Visualize every upcoming deadline on an interactive, live-scanning radar display.</p>
+      </div>
+
+      <div class="feature-card" data-tilt>
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg>
+        </div>
+        <h3>Calendar View</h3>
+        <p>See every deadline mapped onto a monthly calendar so nothing overlaps unnoticed.</p>
+      </div>
+
+      <div class="feature-card" data-tilt>
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V10M11 20V4M18 20v-7"/><path d="M2.5 20.5h19"/></svg>
+        </div>
+        <h3>Progress Tracking</h3>
+        <p>Track completed, pending and overdue tasks with live animated progress bars.</p>
+      </div>
+
+      <div class="feature-card" data-tilt>
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3.2"/><path d="M12 3.5v3M12 17.5v3M20.5 12h-3M6.5 12h-3M17.7 6.3l-2.1 2.1M8.4 15.6l-2.1 2.1M17.7 17.7l-2.1-2.1M8.4 8.4 6.3 6.3"/></svg>
+        </div>
+        <h3>Daily Focus</h3>
+        <p>Automatically surfaces what you should be working on today, ranked by urgency.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section class="how" id="how-it-works">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Workflow</span>
+      <h2>From Chaos to <span class="gradient-text">Clarity</span> in 3 Steps</h2>
+      <p>Deadline Radar keeps your academic calendar organized automatically.</p>
+    </div>
+    <div class="timeline">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Add Your Deadline</h3>
+        <p>Enter the course, task, type, due date and priority — it takes seconds.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Deadline Radar Organizes It</h3>
+        <p>The system calculates remaining time and automatically sorts your deadlines by urgency.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Stay Ahead</h3>
+        <p>Use the dashboard, calendar, radar and daily focus view to finish everything on time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT (light) ===================== -->
+<section class="how" id="about" style="padding-top:0;">
+  <div class="container">
+    <div class="panel" style="display:flex;gap:26px;align-items:center;flex-wrap:wrap;justify-content:space-between;">
+      <div style="max-width:560px;">
+        <h2 style="font-size:24px;margin-bottom:10px;">Built for university life</h2>
+        <p style="font-size:14.5px;">Deadline Radar runs entirely in your browser — your deadlines, progress and settings are saved with <code>localStorage</code>, so your data stays on your device between visits.</p>
+      </div>
+      <a href="register.html" class="btn btn-primary">Create Your Free Account</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="brand"><span class="dot">◉</span> Deadline Radar</div>
+    <p class="tag">"Stay Ahead. Never Miss a Deadline."</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Get Started</a>
+    </div>
+    <p class="copyright">© 2026 Deadline Radar. A student productivity project.</p>
+  </div>
+</footer>
+
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="js/app.js"></script>
+<script src="js/animations.js"></script>
+<script>
+  document.getElementById('navToggle').addEventListener('click', () => {
+    const p = document.getElementById('mobileNavPanel');
+    p.style.display = p.style.display === 'none' ? 'block' : 'none';
+  });
+</script>
+</body>
+</html>

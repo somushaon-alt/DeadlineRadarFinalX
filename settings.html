@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Settings — Deadline Radar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<div id="bg-root"></div>
+
+<div class="app-shell">
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+  <aside class="sidebar" id="sidebar">
+    <button class="side-collapse" id="sideCollapseBtn" aria-label="Collapse sidebar">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
+    </button>
+    <a href="index.html" class="brand"><span class="dot">◉</span> <span class="txt">Deadline Radar</span></a>
+    <nav class="side-menu">
+      <a href="dashboard.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="7.5" height="7.5" rx="1.5"/><rect x="13" y="3.5" width="7.5" height="7.5" rx="1.5"/><rect x="3.5" y="13" width="7.5" height="7.5" rx="1.5"/><rect x="13" y="13" width="7.5" height="7.5" rx="1.5"/></svg>
+        <span class="txt">Dashboard</span>
+      </a>
+      <a href="deadlines.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1.1" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1.1" fill="currentColor" stroke="none"/></svg>
+        <span class="txt">My Deadlines</span>
+      </a>
+      <a href="deadlines.html?action=add">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>
+        <span class="txt">Add Deadline</span>
+      </a>
+      <a href="calendar.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg>
+        <span class="txt">Calendar</span>
+      </a>
+      <a href="radar.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg>
+        <span class="txt">Radar</span>
+      </a>
+      <a href="progress.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V10M11 20V4M18 20v-7"/><path d="M2.5 20.5h19"/></svg>
+        <span class="txt">Progress</span>
+      </a>
+      <a href="settings.html" class="active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a7.9 7.9 0 0 0 0-2l2-1.5-2-3.4-2.4.6a8 8 0 0 0-1.7-1L14.8 3h-4l-.5 2.7a8 8 0 0 0-1.7 1l-2.4-.6-2 3.4L6.2 11a7.9 7.9 0 0 0 0 2l-2 1.5 2 3.4 2.4-.6a8 8 0 0 0 1.7 1l.5 2.7h4l.5-2.7a8 8 0 0 0 1.7-1l2.4.6 2-3.4-2-1.5z"/></svg>
+        <span class="txt">Settings</span>
+      </a>
+    </nav>
+    <div class="side-profile">
+      <div class="avatar" data-user-initial>S</div>
+      <div><p data-user-name>Shaon Somu</p><span data-user-dept>CSE Student</span></div>
+    </div>
+    <a href="index.html" class="side-logout btn btn-ghost btn-sm btn-block" id="logoutBtn">Logout</a>
+  </aside>
+
+  <div class="main-area">
+    <header class="topbar">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div>
+          <h1>Settings</h1>
+          <div class="date-line" data-today-date>Loading…</div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input id="topSearchInput" placeholder="Search deadlines…" />
+        </div>
+        <button class="bell-btn" id="bellBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 10a6 6 0 1 1 12 0c0 4 1.5 5.5 1.5 5.5H4.5S6 14 6 10z"/><path d="M9.5 18.5a2.5 2.5 0 0 0 5 0"/></svg>
+          <span class="bell-badge" id="bellBadge"></span>
+        </button>
+        <div class="notif-panel" id="notifPanel"></div>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="settings-grid">
+
+        <div class="panel">
+          <div class="panel-head"><h2>Your profile</h2></div>
+          <div class="field" id="sFieldName">
+            <label for="sName">Full name</label>
+            <input type="text" id="sName" placeholder="Shaon Somu" />
+            <div class="field-error">Please enter your name.</div>
+          </div>
+          <div class="field" id="sFieldEmail">
+            <label for="sEmail">University email</label>
+            <input type="email" id="sEmail" placeholder="you@university.edu" />
+            <div class="field-error">Please enter a valid email address.</div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="sDept">Department</label>
+              <input type="text" id="sDept" placeholder="CSE" />
+            </div>
+            <div class="field">
+              <label for="sSem">Semester</label>
+              <select id="sSem">
+                <option value="">Select</option>
+                <option>1st Semester</option>
+                <option>2nd Semester</option>
+                <option>3rd Semester</option>
+                <option>4th Semester</option>
+                <option>5th Semester</option>
+                <option>6th Semester</option>
+                <option>7th Semester</option>
+                <option>8th Semester</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-primary" id="saveProfileBtn">Save profile</button>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h2>Appearance</h2></div>
+          <div class="theme-pick">
+            <div class="theme-opt dark" data-theme="dark">
+              <div class="swatch"></div>
+              Dark
+            </div>
+            <div class="theme-opt light" data-theme="light">
+              <div class="swatch"></div>
+              Light
+            </div>
+          </div>
+          <p style="font-size:12.5px;color:var(--text-low);margin-top:14px;">Your choice is saved on this device and applies to every page.</p>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h2>Notifications</h2></div>
+          <div class="toggle-row">
+            <div>
+              <div class="t-title">Deadline reminders</div>
+              <div class="t-sub">Show a pop-up when something is due soon</div>
+            </div>
+            <div class="switch" id="swReminders" role="switch" tabindex="0"></div>
+          </div>
+          <div class="toggle-row">
+            <div>
+              <div class="t-title">Email summaries</div>
+              <div class="t-sub">Not available in this prototype</div>
+            </div>
+            <div class="switch" id="swEmail" role="switch" tabindex="0"></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h2>Defaults</h2></div>
+          <div class="field">
+            <label for="sSort">Sort deadlines by</label>
+            <select id="sSort">
+              <option value="nearest">Nearest first</option>
+              <option value="farthest">Farthest first</option>
+              <option value="priority">Highest priority</option>
+              <option value="recent">Recently added</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="sCalView">Calendar opens on</label>
+            <select id="sCalView">
+              <option value="month">Current month</option>
+              <option value="next">Next month</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="panel" style="grid-column:1/-1;">
+          <div class="panel-head"><h2>Your data</h2></div>
+          <p style="font-size:14px;margin-bottom:18px;">Everything you add is stored in this browser only. Export a copy before clearing your browser data.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <button class="btn btn-ghost" id="exportBtn">Export deadlines</button>
+            <button class="btn btn-ghost" id="restoreDemoBtn">Restore sample deadlines</button>
+            <button class="btn btn-danger" id="clearAllBtn">Delete all deadlines</button>
+          </div>
+          <p style="font-size:12.5px;color:var(--text-low);margin-top:14px;" id="storageLine"></p>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<!-- ===================== Add / Edit Deadline Modal ===================== -->
+<div class="modal-overlay" id="deadlineFormModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h2 id="dfModalTitle">Add New Deadline</h2>
+      <button class="modal-close" onclick="DR.modal.close()">✕</button>
+    </div>
+    <form id="deadlineForm" novalidate>
+      <input type="hidden" id="dfId" />
+      <div class="field" id="dfFieldTitle">
+        <label>Title</label>
+        <input type="text" id="dfTitle" placeholder="e.g. Java Assignment" />
+        <div class="field-error">Please enter a title.</div>
+      </div>
+      <div class="field-row">
+        <div class="field" id="dfFieldCourse">
+          <label>Course</label>
+          <input type="text" id="dfCourse" placeholder="e.g. Object Oriented Programming" />
+          <div class="field-error">Please enter a course.</div>
+        </div>
+        <div class="field">
+          <label>Deadline Type</label>
+          <select id="dfType">
+            <option>Assignment</option>
+            <option>Class Test</option>
+            <option>Midterm</option>
+            <option>Final Exam</option>
+            <option>Project</option>
+            <option>Presentation</option>
+            <option>Lab Report</option>
+            <option>Quiz</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field" id="dfFieldDate">
+          <label>Due Date</label>
+          <input type="date" id="dfDueDate" />
+          <div class="field-error">Please choose a due date.</div>
+        </div>
+        <div class="field">
+          <label>Due Time</label>
+          <input type="time" id="dfDueTime" />
+        </div>
+      </div>
+      <div class="field">
+        <label>Priority</label>
+        <select id="dfPriority">
+          <option>High</option>
+          <option>Medium</option>
+          <option>Low</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Description</label>
+        <textarea id="dfDescription" placeholder="Optional notes about this task…"></textarea>
+      </div>
+      <div class="field">
+        <label>Progress: <span id="dfProgressVal">0%</span></label>
+        <input type="range" id="dfProgress" min="0" max="100" step="5" value="0" style="width:100%;accent-color:#22d3ee;" />
+      </div>
+      <div class="modal-actions">
+        <button type="submit" class="btn btn-primary" id="dfSubmitBtn">Add Deadline</button>
+        <button type="button" class="btn btn-ghost" onclick="DR.modal.close()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ===================== Detail Modal ===================== -->
+<div class="modal-overlay" id="detailModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h2 id="detailTitle">Deadline</h2>
+      <button class="modal-close" onclick="DR.modal.close()">✕</button>
+    </div>
+    <div id="detailBody"></div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" id="detailCompleteBtn">Mark Complete</button>
+      <button class="btn btn-ghost" id="detailEditBtn">Edit</button>
+      <button class="btn btn-danger" id="detailDeleteBtn">Delete</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-stack" id="toastStack"></div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+<script src="js/app.js"></script>
+  <script src="js/firebase-auth.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/settings.js"></script>
+</body>
+</html>
