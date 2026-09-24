@@ -153,7 +153,7 @@
     try {
       const response =
         await fetch(
-          "http://localhost:5000/api/users/" +
+          "https://deadlineradarfinalx.onrender.com/api/users/" +
             encodeURIComponent(
               firebaseUid
             ),
@@ -213,6 +213,7 @@
       );
 
       /* Update local copy with MongoDB result */
+
       if (data.user) {
         DR.auth.updateUser({
           uid:
@@ -614,7 +615,7 @@
     try {
       const response =
         await fetch(
-          "http://localhost:5000/api/deadlines/user/" +
+          "https://deadlineradarfinalx.onrender.com/api/deadlines/user/" +
             encodeURIComponent(
               firebaseUid
             ),
@@ -857,15 +858,18 @@
     () => {
 
       /* Initialize shared DeadlineRadar shell */
+
       DR.initShell();
 
       const s =
         DR.settings.get();
 
       /* Load profile */
+
       loadProfile();
 
       /* Apply theme */
+
       paintTheme(
         s.theme
       );
@@ -985,6 +989,7 @@
             Re-read settings in case
             another page changed them.
           */
+
           const currentSettings =
             DR.settings.get();
 
